@@ -1,0 +1,99 @@
+<body>
+
+<div class="main">
+
+  <!--<img src="../assets/images/white.png">-->
+
+  <div class="header">
+    <h3> License Generator </h3>
+  </div>
+
+
+
+
+
+    <form class="form1" #licenceValidationForm="ngForm" (ngSubmit)="onArticleFormSubmit()">
+
+
+      <label id="error1" class="alert alert-danger" role="alert" *ngIf ="generatedKey == '' && processValidation === false" [ngClass]="'error'"> Application key is required. </label>
+
+
+
+
+      <label class="alert alert-success" role="alert" id="val1" *ngIf="(generatedKey!=null) && processValidation" [ngClass]="'success'">
+        Validation key generated successfully!
+        Please insert the key in your desktop app's validation field.
+      </label>
+      <label class="alert alert-warning" role="alert" id="val2" *ngIf="statusCode === 409" [ngClass]="">
+        Application key already used.
+      </label>
+      <label class="alert alert-danger" role="alert" id="val5" *ngIf="statusCode === 500" [ngClass]="'error'">
+        Invalid application key.
+      </label>
+
+<div class="container">
+
+
+
+      <div class="form-group1">
+        <p class="title1">Application Key</p>
+        <textarea name="generatedKey" class="form-control" [(ngModel)]="generatedKey" placeholder="Enter key" rows="6"></textarea>
+
+
+
+
+
+
+      <button type="submit" class="btn btn-primary" id="prim">GENERATE &nbsp;<img class="icon1" src="https://cdn2.iconfinder.com/data/icons/bwpx/icons/symbol_check.gif"></button>
+      </div>
+
+      <div class="form-group2">
+        <p class="title2">Validation Key</p>
+        <textarea class="form-control"  [value]="validationKey" rows="6" ></textarea>
+
+        <button type="submit" class="btn btn-primary" id="prim2">COPY &nbsp;<img class="icon2" src="https://cdn2.iconfinder.com/data/icons/iconza/iconza_32x32_ffffff/scissors.png"></button>
+      </div>
+</div>
+    </form>
+
+
+    <br/>
+
+
+
+  <!--<div class="container">-->
+    <!--<div class="row" id="first">-->
+      <!--<div class="col-sm">-->
+        <!--ID-->
+      <!--</div>-->
+      <!--<div class="col-sm">-->
+        <!--App Key-->
+      <!--</div>-->
+      <!--<div class="col-sm">-->
+        <!--Validation Key-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="row" id="second" *ngFor="let licenseEntity of allLicenses">-->
+      <!--<div class="col-sm">-->
+        <!--{{article.id}}-->
+      <!--</div>-->
+      <!--<div class="col-sm">-->
+        <!--{{article.generatedKey}}-->
+      <!--</div>-->
+      <!--<div class="col-sm">-->
+        <!--{{article.validationKey}}-->
+      <!--</div>-->
+
+
+    <!--</div>-->
+
+
+  <!--</div>-->
+
+
+</div>
+
+
+</body>

@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+@import url('https://fonts.googleapis.com/css?family=Monda');
+
+
+h3 {
+
+  color:white;
+  font-family: 'Monda';
+  padding-top:30px;
+  margin-left: 35px;
+  font-size: 30px;
+}
+
+.title1, .title2{
+  color: white;
+  font-size: 20px;
+}
+
+
+textarea {
+
+text-decoration: none;
+  background-color: transparent;
+  font-size:17px;
+  border: 2px solid white;
+}
+
+textarea:focus {
+
+  text-decoration: none;
+  background-color: transparent;
+  font-size:17px;
+  border: 2px solid red;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #2f9d9d;
+  color: white;
+}
+.error{
+  color: red;
+  font-size: 20px;
+}
+.success{
+  color: green;
+  font-size: 20px;
+}
+
+p{
+
+  font-family: 'Exo 2';
+  font-size: 20px;
+
+
+}
+
+#error1, #error3{
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+
+
+
+
+#val1{
+  margin-top: 30px;
+  margin-left: 35px;
+}
+
+#val2{
+  margin-top: 30px;
+  margin-left: 35px;
+  color: #766e42;
+  font-size: 20px;
+}
+
+#val4{
+  margin-top: 30px;
+  font-size: 20px;
+
+  margin-left: 35px;
+}
+
+#val5{
+  margin-top: 30px;
+  font-size: 20px;
+  margin-left: 35px;
+}
+
+.main{
+background-color: rgba(255,255,255, 0.3) ;
+border:3px solid white;
+
+
+  margin: 0px 170px 0px 170px;
+
+}
+
+.header{
+color:white;
+  border-bottom: 3px solid white;
+
+}
+
+.icon1{
+width:20px;
+position: relative;
+  top:-2px;
+
+}
+
+
+.icon2{
+  width:20px;
+  position: relative;
+  top:-2px;
+  transform: rotate(20deg);
+
+}
+
+.form-control{
+
+  background-color: transparent;
+  color:white;
+}
+
+body{
+  padding-top:200px;
+  height:990px;
+  background-size: 100px 100px;
+  background: linear-gradient(#003333, cadetblue);;
+}
+
+
+
+#prim{
+  font-weight: bold;
+  padding:10px;
+  box-shadow: 3px 3px 5px #27607F ;
+  border: 1px solid #2f9d9d;
+
+
+}
+
+#prim:hover{
+  font-weight: bold;
+  padding:10px;
+  box-shadow: 2px;
+  border: 1px solid #27607F;
+  background-color: #27607F;
+}
+
+
+#prim2{
+  font-weight: bold;
+  padding:10px;
+  box-shadow: 3px 3px 5px #27607F ;
+  border: 1px solid #2f9d9d;
+
+
+}
+
+#prim2:hover{
+  font-weight: bold;
+  padding:10px;
+  box-shadow: 2px;
+  border: 1px solid #27607F;
+  background-color: #27607F;
+}
+
+::placeholder{
+  color:white;
+  font-weight: bold;
+}
+/*.imagine{*/
+  /*margin-left: 750px;*/
+/*}*/
+
+/*#first{*/
+  /*padding: 2px;*/
+  /*font-family: 'Exo 2';*/
+  /*background-color: #e60000;*/
+  /*border: 1px solid grey;*/
+  /*border-radius: 4px 4px 0 0;*/
+/*}*/
+
+/*#second{*/
+  /*border:1px solid grey;*/
+  /*border-radius: 0 0 4px 4px;*/
+  /*padding:5px;*/
+/*}*/
+
+
+
+/*.row:last-of-type{*/
+  /*margin-bottom: 15px;*/
+/*}*/
+.container{
+  width:100%;
+  display: grid;
+  grid-template-columns: auto auto;
+grid-gap: 150px;
+}
+
+
+
+.form-group1{
+  padding-top: 30px;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start:1;
+  grid-column-end:2;
+}
+
+.form-group2{
+  padding-top: 30px;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start:2;
+  grid-column-end:3;
+}
