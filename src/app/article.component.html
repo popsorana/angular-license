@@ -37,7 +37,7 @@
 
       <div class="form-group1">
         <p class="title1">Application Key</p>
-        <textarea name="generatedKey" class="form-control" [(ngModel)]="generatedKey" placeholder="Enter key" rows="6"></textarea>
+        <textarea name="generatedKey" class="form-control" [(ngModel)]="this.generatedKey" placeholder="Enter key" rows="6"></textarea>
 
 
 
@@ -49,9 +49,10 @@
 
       <div class="form-group2">
         <p class="title2">Validation Key</p>
-        <textarea class="form-control"  [value]="validationKey" rows="6" ></textarea>
+        <textarea type="text" class="form-control" id="text"  [value]="validationKey" #sharableLink rows="6" readonly></textarea>
 
-        <button type="submit" class="btn btn-primary" id="prim2">COPY &nbsp;<img class="icon2" src="https://cdn2.iconfinder.com/data/icons/iconza/iconza_32x32_ffffff/scissors.png"></button>
+        <button type="button" (click)="copyToClipboard(sharableLink)" id="prim2" class="button btn btn-primary">COPY&nbsp;<img class="icon2" src="https://cdn2.iconfinder.com/data/icons/iconza/iconza_32x32_ffffff/scissors.png"></button>
+
       </div>
 </div>
     </form>
@@ -60,40 +61,36 @@
     <br/>
 
 
+</div>
 
-  <!--<div class="container">-->
-    <!--<div class="row" id="first">-->
-      <!--<div class="col-sm">-->
-        <!--ID-->
-      <!--</div>-->
-      <!--<div class="col-sm">-->
-        <!--App Key-->
-      <!--</div>-->
-      <!--<div class="col-sm">-->
-        <!--Validation Key-->
-      <!--</div>-->
+
+
+<!--<div class="table">-->
+  <!--<div class="row" id="first">-->
+
+    <!--<div class="col-sm">-->
+      <!--App Key-->
     <!--</div>-->
-
-
-    <!--<div class="row" id="second" *ngFor="let licenseEntity of allLicenses">-->
-      <!--<div class="col-sm">-->
-        <!--{{article.id}}-->
-      <!--</div>-->
-      <!--<div class="col-sm">-->
-        <!--{{article.generatedKey}}-->
-      <!--</div>-->
-      <!--<div class="col-sm">-->
-        <!--{{article.validationKey}}-->
-      <!--</div>-->
-
-
+    <!--<div class="col-sm">-->
+      <!--Validation Key-->
     <!--</div>-->
+  <!--</div>-->
+
+
+  <!--<div class="row" id="second" *ngFor="let of ">-->
+  <!---->
+  <!--<div class="col-sm">-->
+  <!--{{article.generatedKey}}-->
+  <!--</div>-->
+  <!--<div class="col-sm">-->
+  <!--{{article.validationKey}}-->
+  <!--</div>-->
 
 
   <!--</div>-->
 
 
-</div>
+<!--</div>-->
 
 
 </body>

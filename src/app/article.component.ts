@@ -33,10 +33,12 @@ export class ArticleComponent implements OnInit {
       return;
     }
 
-    this.licenseService.generare(this.generatedKey).subscribe(data => this.test(data));
+    this.licenseService.generare(this.generatedKey).subscribe(data => this.validationKey = data);
+
     this.licenseService.generare(this.generatedKey)
       .subscribe(
         successCode => {
+
           this.statusCode = Number(successCode);
           this.processValidation = true;
         },
@@ -48,9 +50,12 @@ export class ArticleComponent implements OnInit {
 
   }
 
-  test(data) {
-    this.validationKey = data;
+  copyToClipboard(element) {
+    element.select();
+    document.execCommand('copy');
+    element.setSelectionRange(0, 0);
   }
+
 }
 
 
