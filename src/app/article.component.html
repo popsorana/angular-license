@@ -20,14 +20,14 @@
 
 
 
-      <label class="alert alert-success" role="alert" id="val1" *ngIf="(generatedKey!=null) && processValidation" [ngClass]="'success'">
+      <label class="alert alert-success" role="alert" id="val1" *ngIf="(generatedKey!=null) && processValidation == true && (validationKey != '')" [ngClass]="'success'">
         Validation key generated successfully!
         Please insert the key in your desktop app's validation field.
       </label>
-      <label class="alert alert-warning" role="alert" id="val2" *ngIf="statusCode === 409" [ngClass]="">
+      <label class="alert alert-warning" role="alert" id="val2" *ngIf="statusCode === 409" >
         Application key already used.
       </label>
-      <label class="alert alert-danger" role="alert" id="val5" *ngIf="statusCode === 500" [ngClass]="'error'">
+      <label class="alert alert-danger" role="alert" id="val5" *ngIf="!valueChanged && generatedKey != '' && initialized && validationKey == ''" >
         Invalid application key.
       </label>
 
@@ -37,7 +37,7 @@
 
       <div class="form-group1">
         <p class="title1">Application Key</p>
-        <textarea name="generatedKey" class="form-control" [(ngModel)]="this.generatedKey" placeholder="Enter key" rows="6"></textarea>
+        <textarea name="generatedKey" class="form-control" [(ngModel)]="this.generatedKey" (ngModelChange)="valueChanged=true" placeholder="Enter key" rows="6"></textarea>
 
 
 

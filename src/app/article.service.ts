@@ -16,7 +16,8 @@ export class LicenseService {
   }
 
   generare(json): Observable<String> {
-    return this.http.get(this.host + '/license/sendjson1/' + json).map(data => data.text())
+    return this.http.get(this.host + '/license/sendjson1/' + json)
+      .map(data => data.text())
       .catch(this.handleError);
   }
 
@@ -24,5 +25,6 @@ export class LicenseService {
     console.error(error.message || error);
     return Observable.throw(error.status);
   }
+
 
 }
