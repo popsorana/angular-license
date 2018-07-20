@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import {LicenseService} from './article.service';
 import {LicenseEntity} from './article';
+import {error} from "util";
 
 
 @Component({
@@ -11,44 +12,63 @@ import {LicenseEntity} from './article';
 })
 export class ArticleComponent implements OnInit {
   // Component properties
-  allLicenses: LicenseEntity[];
-  generatedKey: string;
-  validationKey: string;
+  generatedKey: String;
+  validationKey: String;
   processValidation: boolean;
   statusCode: number;
+  initialized: boolean;
+  valueChanged: boolean;
 
   constructor(private licenseService: LicenseService) {
   }
 
   ngOnInit() {
     // console.log(this);
+    this.initialized = false;
+    this.valueChanged = false;
     this.validationKey = '';
+    }
+
+  validateForm() {
+
+    console.log(this);
+
+    if (this.generatedKey == null || this.generatedKey == '') {
+      this.validationKey = '';
+      this.generatedKey = '';
+      this.processValidation = false;
+      this.statusCode = 500;
+    }
+
   }
 
   onArticleFormSubmit() {
-    // this.preProcessConfigurations();
-    console.log(this);
-    if (this.generatedKey == null) {
-      this.processValidation = false;
-      return;
-    }
+  
 
-    this.licenseService.generare(this.generatedKey).subscribe(data => this.validationKey = data);
+    this.processValidation = true;
 
-    this.licenseService.generare(this.generatedKey)
-      .subscribe(
-        successCode => {
+    if (!this.initialized)
+      this.initialized = true;
 
-          this.statusCode = Number(successCode);
-          this.processValidation = true;
-        },
-        errorCode => {
-          this.statusCode = errorCode;
-          this.processValidation = false;
-        }
-        );
+    this.validateForm();
 
+    if (this.processValidation)
+      this.getGenerateKey();
   }
+    getGenerateKey(){
+      this.licenseService.generare(this.generatedKey)
+        .subscribe(data => {
+
+            this.statusCode = 200;
+            this.validationKey = data;
+            this.processValidation = true;
+            this.valueChanged = false;
+          }, errorCode => {
+            this.statusCode = 500;
+            this.processValidation = false;
+          })
+
+    }
 
   copyToClipboard(element) {
     element.select();
@@ -56,8 +76,5 @@ export class ArticleComponent implements OnInit {
     element.setSelectionRange(0, 0);
   }
 
+
 }
-
-
-
-
