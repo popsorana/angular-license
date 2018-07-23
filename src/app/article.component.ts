@@ -16,7 +16,7 @@ export class ArticleComponent implements OnInit {
   validationKey: String;
   processValidation: boolean;
   statusCode: number;
-  initialized: boolean;
+  initializedValue: boolean;
   valueChanged: boolean;
 
   constructor(private licenseService: LicenseService) {
@@ -24,7 +24,7 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this);
-    this.initialized = false;
+    this.initializedValue = false;
     this.valueChanged = false;
     this.validationKey = '';
     }
@@ -43,12 +43,12 @@ export class ArticleComponent implements OnInit {
   }
 
   onArticleFormSubmit() {
-  
+
 
     this.processValidation = true;
 
-    if (!this.initialized)
-      this.initialized = true;
+    if (!this.initializedValue)
+      this.initializedValue = true;
 
     this.validateForm();
 
