@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { AppComponent } from './app.component';
-import { ArticleComponent } from './article.component';
-import { LicenseService } from './article.service';
+import {HttpModule} from '@angular/http';
+import {AppComponent} from './app.component';
+import {ArticleComponent} from './article.component';
+import {LicenseService} from './article.service';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -26,4 +26,5 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule {
+}

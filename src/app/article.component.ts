@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-
 import {LicenseService} from './article.service';
-import {LicenseEntity} from './article';
-import {error} from "util";
 
 
 @Component({
@@ -27,54 +24,53 @@ export class ArticleComponent implements OnInit {
     this.initializedValue = false;
     this.valueChanged = false;
     this.validationKey = '';
-    }
+  }
 
   validateForm() {
 
     console.log(this);
 
-    if (this.generatedKey == null || this.generatedKey == '') {
+    if (this.generatedKey == null || this.generatedKey === '') {
       this.validationKey = '';
       this.generatedKey = '';
       this.processValidation = false;
       this.statusCode = 500;
     }
-
   }
 
   onArticleFormSubmit() {
-
-
+    if (this.generatedKey == null || this.generatedKey === '') {
+      this.statusCode = 404;
+    }
     this.processValidation = true;
 
-    if (!this.initializedValue)
+    if (!this.initializedValue) {
       this.initializedValue = true;
+    }
 
     this.validateForm();
-
-    if (this.processValidation)
+    if (this.processValidation) {
       this.getGenerateKey();
-  }
-    getGenerateKey(){
-      this.licenseService.generare(this.generatedKey)
-        .subscribe(data => {
-
-            this.statusCode = 200;
-            this.validationKey = data;
-            this.processValidation = true;
-            this.valueChanged = false;
-          }, errorCode => {
-            this.statusCode = 500;
-            this.processValidation = false;
-          })
-
     }
+  }
+
+  getGenerateKey() {
+    this.licenseService.generare(this.generatedKey)
+      .subscribe(data => {
+
+        this.statusCode = 200;
+        this.validationKey = data;
+        this.processValidation = true;
+        this.valueChanged = false;
+      }, errorCode => {
+        this.statusCode = 404;
+        this.processValidation = false;
+      });
+  }
 
   copyToClipboard(element) {
     element.select();
     document.execCommand('copy');
     element.setSelectionRange(0, 0);
   }
-
-
 }

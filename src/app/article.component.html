@@ -2,89 +2,82 @@
 
 <div class="main">
 
-  <!--<img src="../assets/images/white.png">-->
-
   <div class="header">
     <h3> License Generator </h3>
   </div>
 
+  <form class="form" #licenceValidationForm="ngForm" (ngSubmit)="onArticleFormSubmit()">
 
 
+    <label id="errorMsg" class="alert alert-danger" role="alert" *ngIf="statusCode == 500"
+           [ngClass]="'error'"> Application key is required. </label>
 
 
-    <form class="form1" #licenceValidationForm="ngForm" (ngSubmit)="onArticleFormSubmit()">
+    <label class="alert alert-success" role="alert" id="successMsg"
+           *ngIf="(generatedKey!=null) && processValidation == true && (validationKey != '')" [ngClass]="'success'">
+      Validation key generated successfully!
+      Please insert the key in your desktop app's validation field.
+    </label>
+    <label class="alert alert-danger" role="alert" id="invalidMsg" *ngIf="statusCode === 404">
+      Invalid application key.
+    </label>
+
+    <div class="container">
+
+      <div class="appkey-form-group">
+        <p class="appkey">Application Key</p>
+        <textarea name="generatedKey" class="form-control" [(ngModel)]="this.generatedKey"
+                  (ngModelChange)="valueChanged=true" placeholder="Enter key" rows="6"></textarea>
 
 
-      <label id="error1" class="alert alert-danger" role="alert" *ngIf ="generatedKey == '' && processValidation === false" [ngClass]="'error'"> Application key is required. </label>
-
-
-
-
-      <label class="alert alert-success" role="alert" id="val1" *ngIf="(generatedKey!=null) && processValidation == true && (validationKey != '')" [ngClass]="'success'">
-        Validation key generated successfully!
-        Please insert the key in your desktop app's validation field.
-      </label>
-      <label class="alert alert-danger" role="alert" id="val5" *ngIf="!valueChanged && generatedKey != '' && initializedValue && validationKey == ''" >
-        Invalid application key.
-      </label>
-
-<div class="container">
-
-
-
-      <div class="form-group1">
-        <p class="title1">Application Key</p>
-        <textarea name="generatedKey" class="form-control" [(ngModel)]="this.generatedKey" (ngModelChange)="valueChanged=true" placeholder="Enter key" rows="6"></textarea>
-
-
-
-
-
-
-      <button type="submit" class="btn btn-primary" id="prim">GENERATE &nbsp;<img class="icon1" src="https://cdn2.iconfinder.com/data/icons/bwpx/icons/symbol_check.gif"></button>
+        <button type="submit" class="btn btn-primary" id="generate">GENERATE &nbsp;<img class="icon1"
+          src="https://cdn2.iconfinder.com/data/icons/bwpx/icons/symbol_check.gif">
+        </button>
       </div>
 
-      <div class="form-group2">
-        <p class="title2">Validation Key</p>
-        <textarea type="text" class="form-control" id="text"  [value]="validationKey" #sharableLink rows="6" readonly></textarea>
+      <div class="valkey-form-group">
+        <p class="valkey">Validation Key</p>
+        <textarea type="text" class="form-control" id="text" [value]="validationKey" #sharableLink rows="6"
+                  readonly></textarea>
 
-        <button type="button" (click)="copyToClipboard(sharableLink)" id="prim2" class="button btn btn-primary">COPY&nbsp;<img class="icon2" src="https://cdn2.iconfinder.com/data/icons/iconza/iconza_32x32_ffffff/scissors.png"></button>
+        <button type="button" (click)="copyToClipboard(sharableLink)" id="copy" class="button btn btn-primary">COPY
+          &nbsp;<img class="icon2" src="https://cdn2.iconfinder.com/data/icons/iconza/iconza_32x32_ffffff/scissors.png">
+        </button>
 
       </div>
-</div>
-    </form>
+    </div>
+  </form>
 
 
-    <br/>
+  <br/>
 
 
 </div>
-
 
 
 <!--<div class="table">-->
-  <!--<div class="row" id="first">-->
+<!--<div class="row" id="first">-->
 
-    <!--<div class="col-sm">-->
-      <!--App Key-->
-    <!--</div>-->
-    <!--<div class="col-sm">-->
-      <!--Validation Key-->
-    <!--</div>-->
-  <!--</div>-->
-
-
-  <!--<div class="row" id="second" *ngFor="let of ">-->
-  <!---->
-  <!--<div class="col-sm">-->
-  <!--{{article.generatedKey}}-->
-  <!--</div>-->
-  <!--<div class="col-sm">-->
-  <!--{{article.validationKey}}-->
-  <!--</div>-->
+<!--<div class="col-sm">-->
+<!--App Key-->
+<!--</div>-->
+<!--<div class="col-sm">-->
+<!--Validation Key-->
+<!--</div>-->
+<!--</div>-->
 
 
-  <!--</div>-->
+<!--<div class="row" id="second" *ngFor="let of ">-->
+<!---->
+<!--<div class="col-sm">-->
+<!--{{article.generatedKey}}-->
+<!--</div>-->
+<!--<div class="col-sm">-->
+<!--{{article.validationKey}}-->
+<!--</div>-->
+
+
+<!--</div>-->
 
 
 <!--</div>-->
